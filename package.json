@@ -1,0 +1,23 @@
+{
+  "name": "100devtools",
+  "version": "1.0.0",
+  "description": "Tool for creating a resource library that is specific to user-groups, with tag filtering, sorting, and voting per resource.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/danvgar/100devtools.git"
+  },
+  "author": "Daniel Garcia",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/danvgar/100devtools/issues"
+  },
+  "homepage": "https://github.com/danvgar/100devtools#readme",
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
+}

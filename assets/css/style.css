@@ -21,10 +21,11 @@ aside {
 
 aside button {
     list-style: none;
-    height: 30px;
+    min-height: 30px;
     min-width: 50px;
     border-radius: 10px;
     margin: 2px;
+    padding: 5px;
 }
 
 #wrapper {
