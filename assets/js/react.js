@@ -1,5 +1,20 @@
-let tags = ["stream", "search", "AI"]
+// Global Array of Tag objects
+let tags = [
+    {
+        tagName: "stream",
+        count: 0,
+    },
+    {
+        tagName: "search",
+        count: 0,
+    },
+    {
+        tagName: "AI",
+        count: 0,
+    }
+]
 
+// Global Array of Link objects
 let links = [
     {
         id: 1,
@@ -22,39 +37,79 @@ let links = [
 
 ]
 
+// Main App Component
+function App() {
+    // Tag Component
+    function Tag({ title }) {
 
-// function Tag({ tagName }) {
-//     return <button>{tagName}</button>
-// }
+        const [count, setCount] = React.useState(0)
 
+        function handleClick() {
+            console.log("Successful Click")
+            setCount(count++)
+        }
 
-// function Link({ linkIndex }) {
-//     return <li>{links[linkIndex].title}</li>
-// }
+        return <button
+            onClick={handleClick}
+        >
+            {title.concat(" ", count)}
+        </button>
+    }
 
-function mapTags(item) {
-    return <button key={item}>
-        {item.toLowerCase()}
-    </button>;
-}
+    // function Link({ linkIndex }) {
+    //     return <li>{links[linkIndex].title}</li>
+    // }
 
-function AppTags() {
+    // App SubComponent 1: AppTags
+    function AppTags() {
+        // Helper Function: mapTags
+        function mapTags(obj) {
+            return <Tag
+                key={obj.tagName}
+                title={obj.tagName.toLowerCase()}
+            />
+        }
+
+        // Return: Map Tags into Aside
+        return <>
+            <aside
+                id="app-tags"
+            >
+                {tags.map(mapTags)}
+            </aside>
+        </>
+    }
+
+    // App SubComponent 2: AppLinks
+    function AppLinks() {
+
+        // Helper Function: Map Links
+        function mapLinks(obj) {
+            return <li
+                key={obj.id}
+            >
+                {obj.title}
+            </li>
+        }
+
+        // Return: Map Tags into Main
+        return <>
+            <main
+                id="app-links"
+            >
+                <ul>
+                    {links.map(mapLinks)}
+                </ul>
+            </main>
+        </>
+    }
+
+    // <App /> returns <AppTags /> and <AppLinks />
     return <>
-        {tags.map(mapTags)}
+        <AppTags />
+        <AppLinks />
     </>
 }
 
-
-function AppLinks() {
-    return <>
-        <ul>
-            {links.map(obj => (
-                <li key={obj.id}>{obj.title}</li>
-            ))}
-        </ul>
-    </>
-}
-
-ReactDOM.render(<AppTags />, document.getElementById("app-tags"))
-
-ReactDOM.render(<AppLinks />, document.getElementById("app-links"))
+// Render <App />
+ReactDOM.render(<App />, document.getElementById("app"))
