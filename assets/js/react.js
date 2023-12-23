@@ -55,9 +55,9 @@ function Tag({ title }) {
     </button>
 }
 
-// function Link({ linkIndex }) {
-//     return <li>{links[linkIndex].title}</li>
-// }
+function Link({ linkIndex }) {
+    return <li>{links[linkIndex].title}</li>
+}
 
 // App SubComponent 1: AppTags
 function AppTags() {
