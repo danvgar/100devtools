@@ -10,7 +10,18 @@
 </head>
 
 <body>
-    <script type="text/jsx" src='assets/js/react.js'></script>
+    <!-- React Import -->
+    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+
+    <!-- React-DOM Import -->
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+
+    <!-- Babel Script -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <!-- JSX/React -->
+    <script type="text/babel" src="assets/js/react.js"></script>
+
     <nav>
         <ul>
             <li>Home</li>
@@ -23,30 +34,9 @@
 
     <div id="wrapper">
 
-        <!-- React Import -->
-        <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
-
-        <!-- React-DOM Import -->
-        <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
-
-        <!-- Babel Script -->
-        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-
-        <!-- JSX/React -->
-        <script type="text/jsx" src="assets/js/react.js"></script>
-
-        <aside id="app">
-
-            <button>AI</button>
-            <button>Longer Text</button>
-            <button>Tag</button>
-            <button>Even Longer Text</button>
-            <button>Tag</button>
-
+        <aside id="app-tags">
         </aside>
-        <main id="main">
-            <!-- Objects go here -->
-            Main - Objects go here
+        <main id="app-links">
         </main>
     </div>
     <footer>

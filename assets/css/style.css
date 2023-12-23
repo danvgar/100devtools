@@ -7,6 +7,10 @@ header {
     height: 150px;
 }
 
+#wrapper {
+    display: flex;
+}
+
 nav ul {
     list-style: none;
 }
@@ -28,13 +32,7 @@ aside button {
     padding: 5px;
 }
 
-#wrapper {
-    display: flex;
-    align-items: space-between;
-    justify-content: space-between;
-}
-
-#main {
+#app-links {
     width: 70%;
     height: 700px;
 }
