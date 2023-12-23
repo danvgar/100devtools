@@ -37,73 +37,75 @@ let links = [
 
 ]
 
+
+// Tag Component
+function Tag({ title }) {
+
+    const [count, setCount] = React.useState(0)
+
+    function handleClick() {
+        console.log("Successful Click")
+        setCount(count + 1)
+    }
+
+    return <button
+        onClick={handleClick}
+    >
+        {title.concat(" ", count)}
+    </button>
+}
+
+// function Link({ linkIndex }) {
+//     return <li>{links[linkIndex].title}</li>
+// }
+
+// App SubComponent 1: AppTags
+function AppTags() {
+    // Helper Function: mapTags
+    function mapTags(obj) {
+        return <Tag
+            key={obj.tagName}
+            title={obj.tagName.toLowerCase()}
+        // I feel like there's a way to combine this with Tag(), such that Tag is creating all of the necessary information
+        />
+    }
+
+    // Return: Map Tags into Aside
+    return <>
+        <aside
+            id="app-tags"
+        >
+            {tags.map(mapTags)}
+        </aside>
+    </>
+}
+
+// App SubComponent 2: AppLinks
+function AppLinks() {
+
+    // Helper Function: Map Links
+    function mapLinks(obj) {
+        return <li
+            key={obj.id}
+        >
+            {obj.title}
+        </li>
+    }
+
+    // Return: Map Tags into Main
+    return <>
+        <main
+            id="app-links"
+        >
+            <ul>
+                {links.map(mapLinks)}
+            </ul>
+        </main>
+    </>
+}
+
 // Main App Component
 function App() {
-    // Tag Component
-    function Tag({ title }) {
-
-        const [count, setCount] = React.useState(0)
-
-        function handleClick() {
-            console.log("Successful Click")
-            setCount(count++)
-        }
-
-        return <button
-            onClick={handleClick}
-        >
-            {title.concat(" ", count)}
-        </button>
-    }
-
-    // function Link({ linkIndex }) {
-    //     return <li>{links[linkIndex].title}</li>
-    // }
-
-    // App SubComponent 1: AppTags
-    function AppTags() {
-        // Helper Function: mapTags
-        function mapTags(obj) {
-            return <Tag
-                key={obj.tagName}
-                title={obj.tagName.toLowerCase()}
-            />
-        }
-
-        // Return: Map Tags into Aside
-        return <>
-            <aside
-                id="app-tags"
-            >
-                {tags.map(mapTags)}
-            </aside>
-        </>
-    }
-
-    // App SubComponent 2: AppLinks
-    function AppLinks() {
-
-        // Helper Function: Map Links
-        function mapLinks(obj) {
-            return <li
-                key={obj.id}
-            >
-                {obj.title}
-            </li>
-        }
-
-        // Return: Map Tags into Main
-        return <>
-            <main
-                id="app-links"
-            >
-                <ul>
-                    {links.map(mapLinks)}
-                </ul>
-            </main>
-        </>
-    }
-
     // <App /> returns <AppTags /> and <AppLinks />
     return <>
         <AppTags />
