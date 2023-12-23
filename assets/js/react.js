@@ -1,6 +1,3 @@
-// import React, { Component } from "react";
-// import { render } from "react-dom";
-
 let tags = ["stream", "search", "AI"]
 
 let links = [
@@ -25,21 +22,28 @@ let links = [
 
 ]
 
-function Tag({ tagName }) {
-    return <button>{tagName}</button>
-}
 
-function Link({ linkIndex }) {
-    return <p>{links[linkIndex].title}</p>
+// function Tag({ tagName }) {
+//     return <button>{tagName}</button>
+// }
+
+
+// function Link({ linkIndex }) {
+//     return <li>{links[linkIndex].title}</li>
+// }
+
+function mapTags(item) {
+    return <button key={item}>
+        {item.toLowerCase()}
+    </button>;
 }
 
 function AppTags() {
     return <>
-        {tags.map(item => (
-            <button key={item}>{item.toLowerCase()}</button>
-        ))}
+        {tags.map(mapTags)}
     </>
 }
+
 
 function AppLinks() {
     return <>
