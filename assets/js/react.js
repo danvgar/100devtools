@@ -51,7 +51,7 @@ function Tag({ title }) {
     return <button
         onClick={handleClick}
     >
-        {title.concat(" ", count)}
+        {title.concat(" (", count, ")")}
     </button>
 }
 
